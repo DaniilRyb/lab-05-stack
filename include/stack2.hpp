@@ -1,7 +1,7 @@
 // Copyright 2020 Daniil Rybakov <pochtaworld7@gmail.com>
 
-#ifndef INCLUDE_HEADER1_HPP_
-#define INCLUDE_HEADER1_HPP_
+#ifndef INCLUDE_STACK2_HPP_
+#define INCLUDE_STACK2_HPP_
 
 #include <iostream>
 
@@ -50,7 +50,7 @@ public:
             delete stakan;
             --count;
         } else {
-            std::cout << "stack is empty" << std::endl;
+            std::cout << "Stack is empty!" << std::endl;
         }
     }
     const T& head() const{
@@ -60,4 +60,4 @@ public:
     unsigned count;
 };
 
-#endif //INCLUDE_HEADER1_HPP_
+#endif //INCLUDE_STACK2_HPP_
