@@ -1,4 +1,4 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2020 Daniil Rybakov <pochtaworld7@gmail.com>
 
 #include <gtest/gtest.h>
 
