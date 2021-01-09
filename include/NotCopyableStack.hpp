@@ -1,7 +1,7 @@
 // Copyright 2020 DaniilRybakov <pochtaworld7@gmail.com>
 
 #ifndef INCLUDE_NOTCOPYABLESTACK_HPP_
-#define LAB_05_STACK_NOTCOPYABLESTACK_HPP
+#define INCLUDE_NOTCOPYABLESTACK_HPP_
 #include <utility>
 
 #include "Stack.hpp"
