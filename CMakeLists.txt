@@ -14,8 +14,9 @@ set(
 include("tools/gate/cmake/HunterGate.cmake")
 
 HunterGate(
-        URL "https://github.com/cpp-pm/hunter/archive/v0.23.278.tar.gz"
-        SHA1 "35fa55bc1dfcf9f4d7264f8bb26cd1759ce1ae07"
+        URL "https://github.com/cpp-pm/hunter/archive/v0.23.262.tar.gz"
+        SHA1 "eb51e633e08cdbe2153caf255e9c23968fecb29d"
+
 )
 
 project(template)
@@ -29,14 +30,14 @@ find_package(GTest CONFIG REQUIRED)
 
 add_library(template STATIC
         # enum your files and delete this comment
-        ${CMAKE_CURRENT_SOURCE_DIR}/
-        sources/Stack.cpp
-        sources/NotCopyableStack.cpp )
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/Stack.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/NotCopyableStack.cpp
+        )
 add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-        #${CMAKE_CURRENT_SOURCE_DIR}/sources/headerStackFiles.cpp
-        sources/NotCopyableStack.cpp
-        sources/Stack.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/Stack.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/NotCopyableStack.cpp
+        )
 
 target_include_directories(template
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -50,7 +51,7 @@ target_link_libraries(tests GTest::gtest_main template)
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
 
-if (BUILD_COVERAGE)
+if(BUILD_COVERAGE)
     set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
     find_package(codecov)
@@ -59,4 +60,4 @@ if (BUILD_COVERAGE)
     add_coverage(tests)
     list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
     coverage_evaluate()
-endif ()
+endif()
