@@ -22,7 +22,7 @@ class TestStackClass {
 };
 TEST(templateStackTests, testPushFunc) {
   TestStackClass a(100, "data");
-  TestStackClass b(200,"data1");
+  TestStackClass b(200, "data1");
   TestStackClass c = b;
   Stack<TestStackClass> StackDataClasses;
   StackDataClasses.push(a);
@@ -59,6 +59,6 @@ TEST(templateStackTests, testPopFunc) {
 }
 TEST(Exception, ExceptionStackIsEmpty) {
   Stack<int> stack;
-  EXPECT_THROW(stack.pop(),std::out_of_range);
+  EXPECT_THROW(stack.pop(), std::out_of_range);
   EXPECT_THROW(stack.head(), std::out_of_range);
 }

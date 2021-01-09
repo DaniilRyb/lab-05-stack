@@ -1,9 +1,10 @@
 // Copyright 2020 DaniilRybakov <pochtaworld7@gmail.com>
 
-#ifndef LAB_05_STACK_NOTCOPYABLESTACK_HPP
+#ifndef INCLUDE_NOTCOPYABLESTACK_HPP_
 #define LAB_05_STACK_NOTCOPYABLESTACK_HPP
-#include "Stack.hpp"
 #include <utility>
+
+#include "Stack.hpp"
 template <class T>
 class StackNotCopyable : public Stack<T> {
  public:
@@ -31,4 +32,4 @@ T StackNotCopyable<T>::pop() {
   delete prevNode;
   return value;
 }
-#endif  // LAB_05_STACK_NOTCOPYABLESTACK_HPP
+#endif  // INCLUDE_NOTCOPYABLESTACK_HPP_

@@ -4,6 +4,7 @@
 #define INCLUDE_STACK_HPP_
 #include <iostream>
 #include <string>
+
 #include "utility"
 template <class T>
 struct StackNode {
@@ -15,9 +16,9 @@ class Stack {
  public:
   Stack() = default;
   Stack(const Stack &stack) = delete;
-  auto operator=(const Stack<T> &stack) -> Stack<T>& = delete;
+  auto operator=(const Stack<T> &stack) -> Stack<T> & = delete;
   Stack(Stack &&stack) = default;
-  auto operator=(Stack<T> &&stack) noexcept -> Stack<T>& = default;
+  auto operator=(Stack<T> &&stack) noexcept -> Stack<T> & = default;
   void push(const T &value);
   void push(T &&value);
   void pop();
@@ -41,13 +42,12 @@ void Stack<T>::push(T &&value) {
 }
 template <class T>
 void Stack<T>::pop() {
-  if(headNode == nullptr) {
+  if (headNode == nullptr) {
     throw std::out_of_range("Error! Stack is empty!");
   }
-    StackNode<T>* elem = headNode;
-    headNode = headNode->prev;
-    delete elem;
-
+  StackNode<T> *elem = headNode;
+  headNode = headNode->prev;
+  delete elem;
 }
 template <class T>
 const T &Stack<T>::head() const {
