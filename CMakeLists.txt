@@ -31,11 +31,12 @@ add_library(template STATIC
         # enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/
         sources/Stack.cpp
-        sources/NotCopyableStack.cpp sources/NotCopyableStack.cpp)
+        sources/NotCopyableStack.cpp )
 add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         #${CMAKE_CURRENT_SOURCE_DIR}/sources/headerStackFiles.cpp
-        include/NotCopyableStack.hpp sources/NotCopyableStack.cpp)
+        sources/NotCopyableStack.cpp
+        sources/Stack.cpp)
 
 target_include_directories(template
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
