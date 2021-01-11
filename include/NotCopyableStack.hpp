@@ -6,7 +6,7 @@
 
 #include "Stack.hpp"
 template <class T>
-class StackNotCopyable : public Stack<T> {
+class NotCopyableStack : public Stack<T> {
  public:
   template <class... Args>
   void push_emplace(Args &&... value);
@@ -14,7 +14,7 @@ class StackNotCopyable : public Stack<T> {
 };
 template <class T>
 template <class... Args>
-void StackNotCopyable<T>::push_emplace(Args &&... value) {
+void NotCopyableStack<T>::push_emplace(Args &&... value) {
   auto *prevNode = Stack<T>::headNode;
   Stack<T>::headNode = new StackNode<T>{
       {std::forward<Args>(value)...},
@@ -22,7 +22,7 @@ void StackNotCopyable<T>::push_emplace(Args &&... value) {
   };
 }
 template <class T>
-T StackNotCopyable<T>::pop() {
+T NotCopyableStack<T>::pop() {
   if (Stack<T>::headNode == nullptr) {
     throw std::out_of_range("Error! Stack is empty!");
   }
