@@ -22,7 +22,6 @@ class DataOfSTack {
   int number;
   std::string data;
 };
-
 TEST(templateStackTests, testPushFunc) {
   DataOfSTack a(100, "data");
   DataOfSTack b(200, "data1");
