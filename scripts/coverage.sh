@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 export GTEST_COLOR=1
@@ -13,5 +13,4 @@ cmake -H. -B_builds $CMAKE_OPTS -DBUILD_COVERAGE=ON
 cmake --build _builds
 cmake --build _builds --target test
 cmake --build _builds --target gcov
-cmake --build _builds --target lcov
 gcovr -r  .
